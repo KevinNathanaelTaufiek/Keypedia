@@ -3,7 +3,7 @@
 @section('content')
 <div class="box-form margin-bot">
     <div class="box-form-header center">
-        <h5>Add Keyboard</h5>
+        <h5>Chang Password</h5>
     </div>
     <div class="box-form-content center-flex">
         <form action="/setting/password/update" method="post" enctype="multipart/form-data">

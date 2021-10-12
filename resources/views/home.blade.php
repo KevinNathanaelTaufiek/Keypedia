@@ -1,10 +1,10 @@
-
+{{--
 /*
 *   Keypedia - Web Programming BU01
 *   Kelompok F
 *   2301907901 - Kevin Nathanael Taufiek
 *   2301881820 - Rio Febrianto
-*/
+*/ --}}
 
 @extends('layouts.app')
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Keyboard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class KeyboardController extends Controller
 {
@@ -78,6 +79,7 @@ class KeyboardController extends Controller
         $img = $request->file('keyboardImage');
         // ddd($img);
         if ($img) {
+            File::delete('storage/'.$keyboard->keyboardImage);
             $keyboard->keyboardImage = $img->store('keyboard-images');
         }
 
@@ -88,6 +90,8 @@ class KeyboardController extends Controller
 
 
     public function delete($id){
+        $keyboard = Keyboard::find($id);
+        File::delete('storage/'.$keyboard->keyboardImage);
         Keyboard::destroy($id);
 
         return back();
