@@ -24,7 +24,7 @@
                         @csrf
                         @method('PATCH')
                         <label for="quantity">Quantity</label>
-                        <input type="number" id="quantity" name="qty" value="{{ $cart->qty }}" class="@error('qty')
+                        <input type="number" id="quantity" name="qty" min="0" value="{{ $cart->qty }}" class="@error('qty')
                                             err-box
                                             @enderror">
                         @error('qty')

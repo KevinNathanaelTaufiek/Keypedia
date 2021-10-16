@@ -8,7 +8,7 @@
     $total = 0;
 @endphp
 
-<table border="1">
+<table border="1" class="margin-bot">
     <tr>
         <th>Keyboard Image</th>
         <th>Keyboard Name</th>
