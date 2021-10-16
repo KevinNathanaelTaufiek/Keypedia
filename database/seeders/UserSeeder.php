@@ -17,9 +17,9 @@ class UserSeeder extends Seeder
     {
         $user = [
             [
-                'username' => 'spongebob',
+                'username' => 'admin',
                 'role_id' => 2,
-                'email' => 'spongbob@gmail.com',
+                'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin123'),
                 'address' => 'Jl. Raya Bogor No 24, Depok, Jawa Barat',
                 'gender' => 'Male',
