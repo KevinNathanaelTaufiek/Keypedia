@@ -16,9 +16,17 @@ class KeyboardController extends Controller
     }
 
     public function viewKeyboardsByCategory($categoryId){
-        $keyboards = Keyboard::where('category_id', $categoryId)->get();
+        
+        //pagination
+        $keyboards = Keyboard::where('category_id', $categoryId)->paginate(8);
         $categories = Category::all();
+        //search
+        if(request('search')){
+            $keyboards = Keyboard::where('keyboardName','like','%'.request('search').'%')
+            ->where('category_id','like','%'.$categoryId.'%')->paginate(8);
+        }
         // ddd($keyboards);
+
         return view('keyboard.index', compact('categories','keyboards'));
     }
 
