@@ -9,7 +9,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="center">Welcome to Keypedia</h1>
+<h1 class="center margin-all middle-h1">Welcome to Keypedia</h1>
 <p class="center">Best Keyboard and Keycaps Shop</p>
 <hr>
 <h2 class="center">Categories</h2>

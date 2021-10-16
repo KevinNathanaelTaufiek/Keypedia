@@ -13,13 +13,16 @@
             @method("PATCH")
             <table>
                 <tr>
-                    <td><label for="categoryName">Category Name</label></td>
-                    <td><input class="margin-left @error('categoryName') err-box @enderror" type="text"
-                            name="categoryName"
-                            value="@if (old('categoryName')){{ old('categoryName') }}@else{{ $category->categoryName }}@endif"
-                            id="categoryName">
+                    <div class="form-group">
+                        <td><label for="categoryName">Category Name</label></td>
+                        <td><input type="text" class="form-control margin-left @error('categoryName') err-box @enderror" 
+                        name="categoryName" value="@if (old('categoryName')){{ old('categoryName') }}@else{{ $category->categoryName }}@endif"
+                         id="categoryName" aria-describedby="emailHelp" 
+                        placeholder="Category Name">
                         @error('categoryName') <p class="err-msg margin-left">{{ $message }}</p> @enderror
-                    </td>
+                        <br>
+                        </td>
+                    </div>
                 </tr>
                 <tr>
                     <td><label for="categoryImage">Category Image</label></td>

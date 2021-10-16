@@ -12,7 +12,7 @@
 @else
 @foreach ($transactions as $transaction)
     <a class="no-decor" href="/transaction/detail/{{ $transaction->id }}">
-        <p class="center bg-white">Transaction at {{ $transaction->transactionDate }}</p>
+        <p class="center bg-blue-light margin-mid">Transaction at {{ $transaction->transactionDate }}</p>
     </a>
 @endforeach
 @endif

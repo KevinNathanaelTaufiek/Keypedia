@@ -2,18 +2,31 @@
 
 @section('content')
 @if (isset($keyboards->first()->category->categoryName))
-    <h1 class="center margin-all">{{ $keyboards->first()->category->categoryName }}</h1>
+    <h1 class="center margin-all middle-h1">{{ $keyboards->first()->category->categoryName }}</h1>
     <hr>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form>
+                <div class="input-group mb-3">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search Here" name="search" >
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>      
     <div class="show-item-container margin-bot">
         @foreach ($keyboards as $keyboard)
         <div class="show-item">
             <a class="show-item" href="/detail/{{ $keyboard->id }}">
                 <div class="center-flex">
-                    <img src="{{ asset('storage/'. $keyboard->keyboardImage) }}" alt="keyboard-image" width="300px" height="200px">
+                    <img src="{{ asset('storage/'. $keyboard->keyboardImage) }}" alt="keyboard-image">
 
                 </div>
-                <h5 class="center">{{ $keyboard->keyboardName }}</h5>
-                <h6 class="center"> $ {{ $keyboard->keyboardPrice }}</h6>
+                <h5 class="theLeft">{{ $keyboard->keyboardName }}</h5>
+                <hr class="hr1">
+                <h6 class="theLeft"> $ {{ $keyboard->keyboardPrice }}</h6>
             </a>
             @guest
 
@@ -24,7 +37,7 @@
                 <form action="/delete/{{ $keyboard->id }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="button-style bg-red" type="submit">Delete</button>
+                    <button class="button-style bg-red margin-delete" type="submit">Delete</button>
                 </form>
 
             </div>
@@ -33,11 +46,14 @@
             @endguest
         </div>
         @endforeach
+        
     </div>
-
+    <br>
+    {{$keyboards->links()}}
 @else
     <h2 class="center margin-all">There are no keyboards for this category</h2>
     <hr>
 
 @endif
+
 @endsection

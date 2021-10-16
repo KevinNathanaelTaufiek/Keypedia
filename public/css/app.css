@@ -411,12 +411,12 @@ h4,
 
 h5,
 .h5 {
-    font-size: 1.125rem;
+    font-size: 1.1rem;
 }
 
 h6,
 .h6 {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
 }
 
 .lead {
@@ -8218,6 +8218,7 @@ button.bg-dark:focus {
 .pt-4,
 .py-4 {
     padding-top: 1.5rem !important;
+    
 }
 
 .pr-4,

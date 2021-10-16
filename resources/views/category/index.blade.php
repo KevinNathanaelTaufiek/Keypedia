@@ -18,7 +18,7 @@
             <form action="/manage/category/delete/{{ $category->id }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="button-style bg-red" type="submit">Delete</button>
+                <button class="button-style bg-red margin-delete" type="submit">Delete</button>
             </form>
 
         </div>
