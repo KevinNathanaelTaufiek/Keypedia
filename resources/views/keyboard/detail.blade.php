@@ -22,8 +22,8 @@
                     <form action="/cart/create" method="post" class="center">
                         @csrf
                         @method('POST')
-                        <label for="quantity">Quantity : </label>
-                        <input type="number" id="quantity" name="qty" class="@error('qty')
+                        <label for="quantity">Quantity :   </label>
+                        <input type="number" id="quantity" name="qty" class="form-control col-md-6 not-b @error('qty')
                         err-box
                         @enderror">
                         @error('qty')

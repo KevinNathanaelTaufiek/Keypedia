@@ -24,9 +24,8 @@
                         @csrf
                         @method('PATCH')
                         <label for="quantity">Quantity : </label>
-                        <input type="number" id="quantity" name="qty" value="{{ $cart->qty }}" class="@error('qty')
-                                            err-box
-                                            @enderror">
+                        <input type="number" id="quantity" name="qty" value="{{ $cart->qty }}" class="form-control col-md-6 not-b 
+                        @error('qty')err-box @enderror">
                         @error('qty')
                         <p class="err-msg">{{ $message }}</p>
                         @enderror

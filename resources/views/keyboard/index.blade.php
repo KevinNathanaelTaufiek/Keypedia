@@ -5,15 +5,20 @@
     <h1 class="center margin-all middle-h1">{{ $keyboards->first()->category->categoryName }}</h1>
     <hr>
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <form>
                 <div class="input-group mb-3">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search Here" name="search" >
                         <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        <select name="field" class="form-control margin-left col-md-2" aria-label="Default select example">
+                            <option value="name">name</option>
+                            <option value="price">price</option>
+                        </select>
                     </div>
                 </div>
             </form>
+            
         </div>
     </div>      
     <div class="show-item-container margin-bot">

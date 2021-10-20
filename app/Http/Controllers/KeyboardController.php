@@ -20,10 +20,19 @@ class KeyboardController extends Controller
         //pagination
         $keyboards = Keyboard::where('category_id', $categoryId)->paginate(8);
         $categories = Category::all();
+
         //search
         if(request('search')){
-            $keyboards = Keyboard::where('keyboardName','like','%'.request('search').'%')
-            ->where('category_id','like','%'.$categoryId.'%')->paginate(8);
+            //getting field request from the select
+            if(request('field') == "name"){
+                //searching the query at model
+                $keyboards = Keyboard::where('keyboardName','like','%'.request('search').'%')
+                ->where('category_id','like','%'.$categoryId.'%')->paginate(8);
+            }
+            else{
+                $keyboards = Keyboard::where('keyboardPrice','like','%'.request('search').'%')
+                ->where('category_id','like','%'.$categoryId.'%')->paginate(8);
+            }
         }
         // ddd($keyboards);
 

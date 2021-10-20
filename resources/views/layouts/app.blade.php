@@ -60,7 +60,7 @@
                                 <div class="dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Categories</a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right nav-outside" aria-labelledby="navbarDropdown">
                                     @foreach ($categories as $category)
                                     <a class="dropdown-item" href="/view/{{ $category->id }}">
                                         {{ $category->categoryName }}
@@ -76,7 +76,7 @@
                                 </a>
 
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right nav-outside" aria-labelledby="navbarDropdown">
 
                                     @if (Auth::user()->role->roleName == 'Manager')
                                         <a class="dropdown-item" href="/create">

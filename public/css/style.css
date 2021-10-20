@@ -175,3 +175,12 @@ table {
 .margin-delete{
     margin-top: 40%;
 }
+
+.nav-outside{
+    padding-bottom: 1rem;
+    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+}
+.not-b{
+    display:inline;
+}
