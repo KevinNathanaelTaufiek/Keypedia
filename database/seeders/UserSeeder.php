@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('admin123'),
                 'address' => 'Jl. Raya Bogor No 24, Depok, Jawa Barat',
                 'gender' => 'Male',
-                'dateOfBirth' => '2021-10-09',
+                'dateOfBirth' => '2001-08-09',
             ]
         ];
         DB::table('users')->insert($user);
