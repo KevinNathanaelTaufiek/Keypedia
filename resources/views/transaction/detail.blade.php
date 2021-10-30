@@ -14,10 +14,10 @@
             <table class="table">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Keyboard Image</th>
+                        <th scope="col">Keyboard Name</th>
+                        <th scope="col">Sub-Total</th>
+                        <th scope="col">Quantity</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -18,7 +18,7 @@ class TransactionController extends Controller
 
     public function index(){
         $categories = Category::all();
-        $transactions = Transaction::where('user_id', Auth::user()->id)->get();
+        $transactions = Transaction::where('user_id', Auth::user()->id)->orderBy('transactionDate','desc')->get();
         return view('transaction.index', compact('categories', 'transactions'));
     }
 
