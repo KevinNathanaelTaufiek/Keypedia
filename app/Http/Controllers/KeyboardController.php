@@ -18,7 +18,7 @@ class KeyboardController extends Controller
     public function viewKeyboardsByCategory($categoryId){
 
         //pagination
-        $keyboards = Keyboard::where('category_id', $categoryId)->paginate(8);
+        $keyboards = Keyboard::where('category_id', $categoryId)->paginate(8)->withQueryString();
         $categories = Category::all();
 
         //search
@@ -27,11 +27,11 @@ class KeyboardController extends Controller
             if(request('field') == "name"){
                 //searching the query at model
                 $keyboards = Keyboard::where('keyboardName','like','%'.request('search').'%')
-                ->where('category_id','like','%'.$categoryId.'%')->paginate(8);
+                ->where('category_id','like','%'.$categoryId.'%')->paginate(8)->withQueryString();
             }
             else{
                 $keyboards = Keyboard::where('keyboardPrice','like','%'.request('search').'%')
-                ->where('category_id','like','%'.$categoryId.'%')->paginate(8);
+                ->where('category_id','like','%'.$categoryId.'%')->paginate(8)->withQueryString();
             }
         }
         // ddd($keyboards);
