@@ -18,9 +18,9 @@
                     </div>
                 </div>
             </form>
-            
+
         </div>
-    </div>      
+    </div>
     <div class="show-item-container margin-bot">
         @foreach ($keyboards as $keyboard)
         <div class="show-item">
@@ -51,7 +51,7 @@
             @endguest
         </div>
         @endforeach
-        
+
     </div>
     <br>
     {{$keyboards->links()}}

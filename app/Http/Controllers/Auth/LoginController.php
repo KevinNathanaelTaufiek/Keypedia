@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -38,4 +43,32 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $rememberMeToken = Auth::getRecallerName();
+        $remeberMeTime = 7*24*60;
+
+        Cookie::queue($rememberMeToken, Cookie::get($rememberMeToken), $remeberMeTime);
+
+        $request->session()->regenerate();
+        $this->clearLoginAttempts($request);
+        if ($response = $this->authenticated($request, $this->guard()->user())) {
+            return $response;
+        }
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect()->intended($this->redirectPath());
+    }
+
+
+
 }

@@ -16,25 +16,43 @@
             <br>
             <p>{{ $keyboard->description }}</p>
             <hr class="hr1">
-            @guest
-            @else
-                @if (Auth::user()->role->roleName == 'Customer')
-                    <form action="/cart/create" method="post" class="center">
-                        @csrf
-                        @method('POST')
-                        <label for="quantity">Quantity :   </label>
-                        <input type="number" id="quantity" name="qty" class="form-control col-md-6 not-b @error('qty')
-                        err-box
-                        @enderror">
-                        @error('qty')
-                            <p class="err-msg">{{ $message }}</p>
-                        @enderror
-                        <input type="hidden" name="keyboard_id" value="{{ $keyboard->id }}">
-                        <br>
-                        <button type="submit" class="button-style">Add to Cart</button>
-                    </form>
+
+            @auth
+                @if (Auth::user()->role->roleName != 'Manager')
+                <form action="/cart/create" method="post" class="center">
+                    @csrf
+                    @method('POST')
+                    <label for="quantity">Quantity : </label>
+                    <input type="number" id="quantity" name="qty" class="form-control col-md-6 not-b @error('qty')
+                                        err-box
+                                        @enderror">
+                    @error('qty')
+                    <p class="err-msg">{{ $message }}</p>
+                    @enderror
+                    <input type="hidden" name="keyboard_id" value="{{ $keyboard->id }}">
+                    <br>
+                    <button type="submit" class="button-style">Add to Cart</button>
+                </form>
                 @endif
-            @endguest
+
+                @else
+                <form action="/cart/create" method="post" class="center">
+                    @csrf
+                    @method('POST')
+                    <label for="quantity">Quantity : </label>
+                    <input type="number" id="quantity" name="qty" class="form-control col-md-6 not-b @error('qty')
+                                                        err-box
+                                                        @enderror">
+                    @error('qty')
+                    <p class="err-msg">{{ $message }}</p>
+                    @enderror
+                    <input type="hidden" name="keyboard_id" value="{{ $keyboard->id }}">
+                    <br>
+                    <button type="submit" class="button-style">Add to Cart</button>
+                </form>
+
+            @endauth
+
 
         </div>
     </div>

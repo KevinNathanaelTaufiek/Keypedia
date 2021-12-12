@@ -34,5 +34,15 @@ class CategorySeeder extends Seeder
         ];
 
         DB::table('categories')->insert($categories);
+
+        // for ($i=0; $i < 100; $i++) {
+        //     DB::table('keyboards')->insert([
+        //         'category_id' => 1,
+        //         'keyboardName' => 'asdasd'.$i,
+        //         'keyboardPrice' => 123,
+        //         'description' => 'asdioqwjdoijqwdioj',
+        //         'keyboardImage' => 'category-images/cherrykey.jpg'
+        //     ]);
+        // }
     }
 }

@@ -16,7 +16,7 @@ class KeyboardController extends Controller
     }
 
     public function viewKeyboardsByCategory($categoryId){
-        
+
         //pagination
         $keyboards = Keyboard::where('category_id', $categoryId)->paginate(8);
         $categories = Category::all();
